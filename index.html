@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Подарочные чайные пары — изысканные чашки и блюдца в красивой упаковке. Идеальный подарок для ценителей красоты.">
+  <title>LANCHINI — Подарочные чайные пары</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">LANCH<span>INI</span></a>
+
+      <nav class="header__nav" id="nav">
+        <a href="index.html">Главная</a>
+        <a href="pages/catalog.html">Каталог</a>
+        <a href="pages/about.html">О нас</a>
+        <a href="pages/delivery.html">Доставка</a>
+        <a href="pages/contacts.html">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="header__search">
+          <input type="text" id="search-input" placeholder="Поиск...">
+          <button class="header__search-btn" id="search-btn">&#128269;</button>
+        </div>
+        <a href="pages/cart.html" class="header__cart" id="cart-icon">
+          &#128722;
+          <span class="header__cart-count" id="cart-count" style="display:none;">0</span>
+        </a>
+        <button class="header__burger" id="burger" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="hero" id="hero">
+    <div class="hero__slide active" data-slide="0">
+      <div class="hero__content">
+        <div class="hero__text">
+          <p class="hero__subtitle">Коллекция 2025</p>
+          <h1 class="hero__title">Идеальный подарок для ценителей красоты</h1>
+          <p class="hero__desc">Изысканные чайные пары ручной работы в элегантной подарочной упаковке. Каждый набор — маленькое произведение искусства.</p>
+          <a href="pages/catalog.html" class="btn btn--primary">Смотреть каталог</a>
+        </div>
+        <div class="hero__image">&#9749;</div>
+      </div>
+    </div>
+    <div class="hero__slide" data-slide="1">
+      <div class="hero__content">
+        <div class="hero__text">
+          <p class="hero__subtitle">Подарочная упаковка</p>
+          <h1 class="hero__title">Красота в каждой детали</h1>
+          <p class="hero__desc">Каждая чайная пара упакована в фирменную коробку с атласной лентой. Готовый подарок, который не нужно дополнительно оформлять.</p>
+          <a href="pages/catalog.html" class="btn btn--primary">Выбрать подарок</a>
+        </div>
+        <div class="hero__image">&#127873;</div>
+      </div>
+    </div>
+    <div class="hero__slide" data-slide="2">
+      <div class="hero__content">
+        <div class="hero__text">
+          <p class="hero__subtitle">Ручная работа</p>
+          <h1 class="hero__title">Традиции мастерства</h1>
+          <p class="hero__desc">Фарфор высшего качества, расписанный вручную. Наши чайные пары — это сочетание традиций и современного дизайна.</p>
+          <a href="pages/catalog.html" class="btn btn--primary">Узнать больше</a>
+        </div>
+        <div class="hero__image">&#127942;</div>
+      </div>
+    </div>
+    <div class="hero__dots">
+      <div class="hero__dot active" data-slide="0"></div>
+      <div class="hero__dot" data-slide="1"></div>
+      <div class="hero__dot" data-slide="2"></div>
+    </div>
+  </section>
+
+  <!-- POPULAR PRODUCTS -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Популярные товары</h2>
+        <p class="section__desc">Самые любимые чайные пары наших покупателей</p>
+      </div>
+      <div class="products-grid" id="popular-products">
+        <!-- Products injected by JS -->
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="pages/catalog.html" class="btn btn--outline">Весь каталог</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section features">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Почему выбирают нас</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature__icon">&#127873;</div>
+          <h3 class="feature__title">Подарочная упаковка</h3>
+          <p class="feature__desc">Каждая чайная пара упакована в элегантную коробку с атласной лентой — готовый подарок</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">&#9733;</div>
+          <h3 class="feature__title">Высокое качество</h3>
+          <p class="feature__desc">Только настоящий фарфор от проверенных мастерских с контролем качества</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">&#128666;</div>
+          <h3 class="feature__title">Бережная доставка</h3>
+          <p class="feature__desc">Надёжная упаковка и страховка — ваш подарок доедет в целости и сохранности</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">&#10084;</div>
+          <h3 class="feature__title">С любовью к деталям</h3>
+          <p class="feature__desc">Уникальные дизайны, ручная роспись и внимание к каждой мелочи</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">LANCH<span>INI</span></div>
+          <p class="footer__about">Мы создаём подарочные чайные пары, которые приносят радость и украшают чаепитие. Каждый набор — это сочетание изысканного дизайна и безупречного качества.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Магазин</h4>
+          <div class="footer__links">
+            <a href="pages/catalog.html">Каталог</a>
+            <a href="pages/about.html">О нас</a>
+            <a href="pages/delivery.html">Доставка и оплата</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Помощь</h4>
+          <div class="footer__links">
+            <a href="pages/contacts.html">Контакты</a>
+            <a href="pages/delivery.html">Как заказать</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Контакты</h4>
+          <div class="footer__links">
+            <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+            <a href="mailto:hello@lanchini.ru">hello@lanchini.ru</a>
+            <a>Москва, ул. Чайная, 12</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2025 LANCHINI. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <!-- NOTIFICATION -->
+  <div class="notification" id="notification"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
