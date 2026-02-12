@@ -533,6 +533,40 @@ button {
   font-weight: 500;
 }
 
+/* CATALOG TABS */
+.catalog-tabs {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.catalog-tabs__inner {
+  display: flex;
+  gap: 0;
+}
+
+.catalog-tab {
+  padding: 16px 32px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.catalog-tab:hover {
+  color: var(--text);
+}
+
+.catalog-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 .catalog-controls {
   display: flex;
   justify-content: space-between;

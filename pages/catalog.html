@@ -50,6 +50,17 @@
     <h1 class="catalog-header__title">Каталог чайных пар</h1>
   </div>
 
+  <!-- CATEGORY TABS -->
+  <div class="catalog-tabs">
+    <div class="container">
+      <div class="catalog-tabs__inner">
+        <button class="catalog-tab active" data-category="all">Все товары</button>
+        <button class="catalog-tab" data-category="women">Для женщин</button>
+        <button class="catalog-tab" data-category="men">Для мужчин</button>
+      </div>
+    </div>
+  </div>
+
   <!-- CATALOG -->
   <section class="section">
     <div class="container">
@@ -125,6 +136,19 @@
       const priceFrom = document.getElementById('price-from');
       const priceTo = document.getElementById('price-to');
       const filterBtn = document.getElementById('filter-btn');
+      const tabs = document.querySelectorAll('.catalog-tab');
+
+      let activeCategory = 'all';
+
+      // Category tabs
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          activeCategory = tab.dataset.category;
+          render();
+        });
+      });
 
       // Check for search query
       const params = new URLSearchParams(window.location.search);
@@ -135,6 +159,11 @@
 
       function render() {
         let filtered = [...products];
+
+        // Category filter
+        if (activeCategory !== 'all') {
+          filtered = filtered.filter(p => p.category === activeCategory);
+        }
 
         // Search filter
         const query = document.getElementById('search-input').value.trim().toLowerCase();
