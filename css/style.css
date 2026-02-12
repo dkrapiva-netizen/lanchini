@@ -1129,6 +1129,9 @@ button {
   .products-grid {
     grid-template-columns: 1fr;
   }
+  .hero__subtitle {
+    margin-top: 16px;
+  }
   .hero__title {
     font-size: 1.8rem;
   }
