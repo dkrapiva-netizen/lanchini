@@ -4,7 +4,14 @@ const Cart = {
 
   getItems() {
     const data = localStorage.getItem(this.KEY);
-    return data ? JSON.parse(data) : [];
+    if (!data) return [];
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      console.error('Cart data corrupted, resetting:', e);
+      localStorage.removeItem(this.KEY);
+      return [];
+    }
   },
 
   save(items) {

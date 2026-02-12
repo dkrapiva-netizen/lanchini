@@ -1,3 +1,7 @@
+// ===== DELIVERY CONSTANTS =====
+const DELIVERY_COST = 490;
+const FREE_DELIVERY_THRESHOLD = 5000;
+
 // ===== PRODUCT DATA =====
 const products = [
   {

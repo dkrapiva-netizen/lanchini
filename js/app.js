@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroSlider();
   initSearch();
   renderPopularProducts();
+  initBackToTop();
 });
 
 // ===== BURGER MENU =====
@@ -15,6 +16,11 @@ function initBurger() {
   if (!burger || !nav) return;
   burger.addEventListener('click', () => {
     nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+    });
   });
 }
 
@@ -127,4 +133,29 @@ function showNotification(text) {
 // ===== FORMAT PRICE =====
 function formatPrice(num) {
   return num.toLocaleString('ru-RU') + ' \u20BD';
+}
+
+// ===== DEBOUNCE =====
+function debounce(fn, delay) {
+  let timer;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+// ===== BACK TO TOP =====
+function initBackToTop() {
+  const btn = document.createElement('button');
+  btn.className = 'back-to-top';
+  btn.setAttribute('aria-label', 'Наверх');
+  btn.innerHTML = '&#8593;';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }

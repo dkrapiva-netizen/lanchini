@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Товар — LANCHINI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -24,7 +25,7 @@
       <div class="header__actions">
         <div class="header__search">
           <input type="text" id="search-input" placeholder="Поиск...">
-          <button class="header__search-btn" id="search-btn">&#128269;</button>
+          <button class="header__search-btn" id="search-btn" aria-label="Поиск">&#128269;</button>
         </div>
         <a href="cart.html" class="header__cart" id="cart-icon">
           &#128722;
@@ -101,73 +102,6 @@
   <script src="../js/data.js"></script>
   <script src="../js/cart.js"></script>
   <script src="../js/app.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const id = parseInt(params.get('id'));
-      const product = products.find(p => p.id === id);
-
-      if (!product) {
-        document.getElementById('product-content').innerHTML = '<p style="text-align:center;padding:60px;color:var(--text-light);">Товар не найден</p>';
-        return;
-      }
-
-      document.title = product.name + ' — LANCHINI';
-      document.getElementById('breadcrumb-name').textContent = product.name;
-
-      const specsHTML = Object.entries(product.specs).map(([key, val]) =>
-        `<tr><td>${key}</td><td>${val}</td></tr>`
-      ).join('');
-
-      document.getElementById('product-content').innerHTML = `
-        <div class="product-gallery">
-          <div class="product-gallery__main">${product.image}</div>
-          <div class="product-gallery__thumbs">
-            <div class="product-gallery__thumb active">${product.image}</div>
-            <div class="product-gallery__thumb">&#127873;</div>
-            <div class="product-gallery__thumb">&#9749;</div>
-          </div>
-        </div>
-        <div class="product-details">
-          <h1 class="product-details__title">${product.name}</h1>
-          <div class="product-details__price">${product.price.toLocaleString('ru-RU')} &#8381;</div>
-          <p class="product-details__desc">${product.details}</p>
-          <div class="product-details__specs">
-            <h3>Характеристики</h3>
-            <table>${specsHTML}</table>
-          </div>
-          <div class="product-details__actions">
-            <div class="quantity">
-              <button class="quantity__btn" id="qty-minus">&#8722;</button>
-              <input class="quantity__value" type="number" id="qty-input" value="1" min="1">
-              <button class="quantity__btn" id="qty-plus">&#43;</button>
-            </div>
-            <button class="btn btn--primary" id="add-to-cart">В корзину</button>
-          </div>
-        </div>
-      `;
-
-      // Quantity controls
-      const qtyInput = document.getElementById('qty-input');
-      document.getElementById('qty-minus').addEventListener('click', () => {
-        const v = parseInt(qtyInput.value);
-        if (v > 1) qtyInput.value = v - 1;
-      });
-      document.getElementById('qty-plus').addEventListener('click', () => {
-        qtyInput.value = parseInt(qtyInput.value) + 1;
-      });
-
-      // Add to cart
-      document.getElementById('add-to-cart').addEventListener('click', () => {
-        Cart.add(product.id, parseInt(qtyInput.value));
-        showNotification('Товар добавлен в корзину');
-      });
-
-      // Similar products
-      const similar = products.filter(p => p.id !== product.id).slice(0, 4);
-      const grid = document.getElementById('similar-products');
-      similar.forEach(p => grid.appendChild(createProductCard(p, '')));
-    });
-  </script>
+  <script src="../js/product-page.js"></script>
 </body>
 </html>
