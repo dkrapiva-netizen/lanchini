@@ -23,9 +23,9 @@ const Cart = {
     const items = this.getItems();
     const existing = items.find(i => i.id === productId);
     if (existing) {
-      existing.qty += qty;
+      existing.qty = Math.min(10, existing.qty + qty);
     } else {
-      items.push({ id: productId, qty });
+      items.push({ id: productId, qty: Math.min(10, qty) });
     }
     this.save(items);
   },
@@ -40,7 +40,7 @@ const Cart = {
     const items = this.getItems();
     const item = items.find(i => i.id === productId);
     if (item) {
-      item.qty = qty;
+      item.qty = Math.min(10, qty);
       this.save(items);
     }
   },

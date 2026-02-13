@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-details__actions">
         <div class="quantity">
           <button class="quantity__btn" id="qty-minus" aria-label="Уменьшить количество">&#8722;</button>
-          <input class="quantity__value" type="number" id="qty-input" value="1" min="1" max="99">
+          <input class="quantity__value" type="number" id="qty-input" value="1" min="1" max="10">
           <button class="quantity__btn" id="qty-plus" aria-label="Увеличить количество">&#43;</button>
         </div>
         <button class="btn btn--primary" id="add-to-cart">В корзину</button>
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('qty-plus').addEventListener('click', () => {
     const v = parseInt(qtyInput.value);
-    if (v < 99) qtyInput.value = v + 1;
+    if (v < 10) qtyInput.value = v + 1;
   });
 
   // Add to cart
   document.getElementById('add-to-cart').addEventListener('click', () => {
-    const qty = Math.min(99, Math.max(1, parseInt(qtyInput.value) || 1));
+    const qty = Math.min(10, Math.max(1, parseInt(qtyInput.value) || 1));
     Cart.add(product.id, qty);
     showNotification('Товар добавлен в корзину');
   });

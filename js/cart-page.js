@@ -30,7 +30,7 @@ function renderCart() {
           <p class="cart-item__desc">${product.desc}</p>
           <div class="quantity" style="margin-top:8px;">
             <button class="quantity__btn cart-qty-minus" data-id="${product.id}" aria-label="Уменьшить количество">&#8722;</button>
-            <input class="quantity__value cart-qty-input" type="number" value="${item.qty}" min="1" max="99" data-id="${product.id}">
+            <input class="quantity__value cart-qty-input" type="number" value="${item.qty}" min="1" max="10" data-id="${product.id}">
             <button class="quantity__btn cart-qty-plus" data-id="${product.id}" aria-label="Увеличить количество">&#43;</button>
           </div>
         </div>
@@ -85,7 +85,7 @@ function renderCart() {
       const id = parseInt(btn.dataset.id);
       const input = container.querySelector(`.cart-qty-input[data-id="${id}"]`);
       const v = parseInt(input.value);
-      if (v < 99) {
+      if (v < 10) {
         Cart.updateQty(id, v + 1);
         renderCart();
       }
